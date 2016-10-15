@@ -1,0 +1,41 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Demo cuts</title>
+    <link rel="stylesheet" type="text/css" href="base.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/0.2.0/Chart.min.js" type="text/javascript"></script>
+</head>
+<body>
+    <h1>Demo breakdown</h1>
+    <canvas id="demographics" width="700" height="500"></canvas>
+        <script>
+        var data = [
+            {
+                value: 35,
+                color:"#4B77BE"
+            },
+            {
+                value : 15,
+                color : "#68C3A3"
+            },
+            {
+                value : 5,
+                color : "#F9BF3B"
+            },
+            {
+                value : 1,
+                color : "#A2DED0"
+            },
+	    {
+		value: 24,
+		color: "#90C695"
+	    },
+	    {
+		value: 20,
+		color: "#C5EFF7"
+  	    }
+        ];
+        var demographics = document.getElementById("demographics").getContext("2d");
+        new Chart(demographics).Pie(data);
+    </script>
+</body>
