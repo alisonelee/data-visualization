@@ -38,79 +38,79 @@
     <meta charset="utf-8">
   </head>
   <body>
-      <!--Chart-->
-      <div id="container">
-        <canvas id="chart-area" width="500" height="500"></canvas>
-      </div>
-      <!--Legend-->
-      <div id="driver-legend"></div>
+    <!--Chart-->
+    <div id="container">
+      <canvas id="chart-area" width="500" height="500"></canvas>
+    </div>
+    <!--Legend-->
+    <div id="driver-legend"></div>
   </body>
 </html>
 <script>
 // Data
   var driverData = [
-    <!--Worker pay and benefits-->
+    //Worker pay and benefits
     {
       value: 25.5,
       color:"#005999",
       label:"Worker pay and benefits"
     },
-    <!--Worker treatment-->
+    // Worker treatment
     {
       value : 24,
       color : "#005999",
       label:"Worker treatment"
     },
-    <!--Leadership and ethics-->
+    // Leadership and ethics
     {
       value : 17.2,
       color : "#524A95",
       label:"Leadership and ethics"
     },
-    <!--Customer treatment-->
+    // Customer treatment
     {
       value : 7.4,
       color : "#FF0132",
       label:"Customer treatment"
     },
-    <!--Product attributes-->
+    // Product attributes
     {
       value : 5.6,
       color : "#FF0132",
       label:"Product attributes"
     },
-    <!--Domestic job creation-->
+    // Domestic job creation
     {
       value : 5.6,
       color : "#00BFFF",
       label:"Domestic job creation"
     },
-    <!--Environmental impact-->
+    // Environmental impact
     {
       value : 5.0,
       color : "#6AB93E",
       label:"Environmental impact"
     },
-    <!--Supply chain impact-->
+    // Supply chain impact
     {
       value : 4.1,
       color : "#00BFFF",
       label:"Supply chain impact"
     },
-    <!--Investor alignment-->
+    // Investor alignment
     {
       value : 3.9,
       color : "#1EA2A0",
       label:"Investor alignment"
     },
-    <!--Community wellbeing-->
+    // Community wellbeing
     {
       value : 1.7,
       color : "#298FC2",
       label:"Community well-being"
     }
   ];
-
+  // Create chart
   window.onload = function(){
     var ctx = document.getElementById("chart-area").getContext("2d");
     window.driverChart = new Chart(ctx).Doughnut(driverData, {
