@@ -1,3 +1,6 @@
-# Pattern match for market research component rankings
+# Market Research Findings
+## Simple widget data interaction
 
-## Used for widgets
+rankings.html - overview that highlights top components
+drivers/ - individual breakdown
+
