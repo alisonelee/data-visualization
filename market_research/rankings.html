@@ -9,6 +9,17 @@
       background-color: #DCD8D2;
       border: 1px solid #fff;
     }
+    .container {
+      width: 100%;
+    }
+    .left {
+      width: 70%;
+      float: left;
+    }
+    .right {
+      width: 29%;
+      margin-left: 71%;
+    }
   </style>
   <script type="text/javascript">
     // Color key for components
@@ -46,6 +57,7 @@
         instances[i].style.backgroundColor = getColor(component);
         instances[i].style.color = "#fff";
       }
+      getMoreInfo(component);
     }
 
     function reset(component) {
@@ -54,10 +66,53 @@
         instances[i].style.backgroundColor = "#DCD8D2";
         instances[i].style.color = "#4A4A4A";
       }
+      intro();
+    }
+
+    // Description
+    window.onload = function intro() {
+      document.getElementById("more-info-heading").innerHTML = "Priorities voiced by the American public";
+      document.getElementById("more-info").innerHTML = "Presenting you the the top drivers as surfaced by our 2016 survey. Hover over the table to learn more.";
+    }
+    function getMoreInfo(component) {
+      if (component == "jobs"){
+        document.getElementById("more-info-heading").innerHTML = "Domestic Job Creation";
+        document.getElementById("more-info").innerHTML = "Are jobs being created in the United States? Whether or not a company is creating jobs in the US ranked among the highest in importance, although it declined in importance as income and investments of respondents increased.<a href='http://justcapital.com/driver/domestic-job-creation/'>Learn more</a>";
+      }
+      else if (component == "laws") {
+        document.getElementById("more-info-heading").innerHTML = "Leadership and Ethics";
+        document.getElementById("more-info").innerHTML = "Following laws and regulations ranked among the top 7 across all issues and increased in importance as income increased.<a href='http://justcapital.com/driver/leadership-and-ethics/'>Learn more</a>";
+      }
+      else if (component == "wage") {
+        document.getElementById("more-info-heading").innerHTML = "Worker Pay and Benefits";
+        document.getElementById("more-info").innerHTML = "Are workers paid fairly? Moderate, liberal, and very liberal respondents identified paying a living wage among the top 6 priorities; in comparison, conservative and very conservative respondents didn't.<a href='http://justcapital.com/driver/worker-pay-and-benefits/'>Learn more</a>";
+      }
+      else if (component == "leaders") {
+        document.getElementById("more-info-heading").innerHTML = "Leadership and Ethics";
+        document.getElementById("more-info").innerHTML = "Do leaders have integrity? Having leaders with integrity ranked particularly high among thos making $100,000 or more as well as among those who identified as conservatives. <a href='http://justcapital.com/driver/leadership-and-ethics/'>Learn more</a>";
+      }
+      else if (component == "respect") {
+        document.getElementById("more-info-heading").innerHTML = "Worker Treatment";
+        document.getElementById("more-info").innerHTML = "How well are workers treated on the job? Respect for workers ranked among the top 7 issues across all major demographic groups. <a href='http://justcapital.com/driver/worker-treatment/'>Learn more</a>";
+      }
+      else if (component == "workplace") {
+        document.getElementById("more-info-heading").innerHTML = "Worker Treatment";
+        document.getElementById("more-info").innerHTML = "How well are workers treated on the job? Worker safety ranked among the top 7 issues across all major demographic groups. <a href='http://justcapital.com/driver/worker-treatment/'>Learn more</a>";
+      }
+      else if (component == "discriminate") {
+        document.getElementById("more-info-heading").innerHTML = "Worker Treatment";
+        document.getElementById("more-info").innerHTML = "How well are workers treated on the job? Non-discrimination in hiring, firing and promotion ranked among the top 7 issues across all major demographic groups. <a href='http://justcapital.com/driver/worker-treatment/'>Learn more</a>";
+      }
+      else if (component == "fairpayindustry") {
+        document.getElementById("more-info-heading").innerHTML = "Worker Pay and Benefits";
+        document.getElementById("more-info").innerHTML = "Across all major demographic groups, respondents consistently ranked providign fair pay for industry and job title as the #1 or #2 issue, among all topics. <a href='http://justcapital.com/driver/worker-pay-and-benefits/'>Learn more</a>";
+      }
     }
   </script>
 </head>
 <body>
+  <section class="container">
+  <div class="left">
   <table>
     <thead>
     <tr>
@@ -74,7 +129,7 @@
   </thead>
   <tbody>
     <tr>
-      <th class="row" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">#1</th>
+      <th class="row">#1</th>
       <td class="fairpayindustry" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Pays a fair wage for the industry and job level</td>
       <td class="jobs" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Creates jobs in the US</td>
       <td class="discriminate" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Doesn't discriminate in hiring, firing and promotion practices</td>
@@ -152,5 +207,11 @@
     </tr>
   </tbody>
   </table>
+</div>
+<div class="right">
+  <h1 id="more-info-heading"></h1>
+  <p id="more-info"></p>
+</div>
+</section>
 </body>
 </html>
