@@ -6,9 +6,6 @@
     .container {
       width: 100%;
     }
-    .bottom {
-      position: fixed;
-    }
     h1 {
       font-family: "Proxima Nova Extra Condensed";
       font-size: 30px;
@@ -22,10 +19,6 @@
       text-align: center;
       background-color: #DCD8D2;
       border: 1px solid #fff;
-    }
-    tr:hover th:first-child {
-      background-color: #00BFFF;
-      color: #fff;
     }
   </style>
   <script type="text/javascript">
@@ -86,26 +79,31 @@
     }
 
     /**
-    * Highlights all instances of a given component when one is hovered over.
+    * Highlights all instances of a given component when one is hovered over, and
+    * the ranking for the component in the current income bracket hovered over.
     */
-    function highlight(component) {
+    function highlight(ranking, component) {
       var instances = document.getElementsByClassName(component);
+      var rank = document.getElementById(ranking);
       for (var i = 0; i < instances.length; i++) {
         instances[i].style.backgroundColor = getColor(component);
         instances[i].style.color = "#fff";
       }
+      rank.style.backgroundColor = getColor(component);
       getMoreInfo(component);
     }
 
     /**
     * Unhighlights/returns given component to default.
     */
-    function reset(component) {
+    function reset(ranking, component) {
       var instances = document.getElementsByClassName(component);
+      var rank = document.getElementById(ranking);
       for (var i = 0; i < instances.length; i++) {
         instances[i].style.backgroundColor = "#DCD8D2";
         instances[i].style.color = "#4A4A4A";
       }
+      rank.style.backgroundColor = "#fff";
       intro();
     }
 
@@ -124,42 +122,42 @@
     */
     function getMoreInfo(component) {
       if (component == "jobs"){
-        document.getElementById("driver-header").innerHTML = "DRIVER -  Domestic Job Creation";
+        document.getElementById("driver-header").innerHTML = "Driver:  Domestic Job Creation";
         document.getElementById("description").innerHTML = "<h2 id='component-header'>Component: Creates jobs in the US.</h2><br>" + jobs_lang + " <a href=" + jobs_link + ">Learn more</a>";
         document.getElementById("component-header").style.color = jobs_color;
       }
       else if (component == "laws") {
-        document.getElementById("driver-header").innerHTML = "DRIVER - Leadership and Ethics";
+        document.getElementById("driver-header").innerHTML = "Driver: Leadership and Ethics";
         document.getElementById("description").innerHTML = "<h2 id='component-header'>Component: Follows laws and regulation.</h2><br>" + laws_lang + " <a href=" + laws_link + ">Learn more</a>";
         document.getElementById("component-header").style.color = laws_color;
       }
       else if (component == "wage") {
-        document.getElementById("driver-header").innerHTML = "DRIVER - Worker Pay and Benefits";
+        document.getElementById("driver-header").innerHTML = "Driver: Worker Pay and Benefits";
         document.getElementById("description").innerHTML = "<h2 id='component-header'>Component: Pays a living wage.</h2><br>" + wage_lang + " <a href=" + wage_link + ">Learn more</a>";
         document.getElementById("component-header").style.color = wage_color;
       }
       else if (component == "leaders") {
-        document.getElementById("driver-header").innerHTML = "DRIVER - Leadership and Ethics";
+        document.getElementById("driver-header").innerHTML = "Driver: Leadership and Ethics";
         document.getElementById("description").innerHTML = "<h2 id='component-header'>Component: Has leaders with integrity.</h2><br>" + leaders_lang + " <a href=" + leaders_link + ">Learn more</a>";
         document.getElementById("component-header").style.color = leaders_color;
       }
       else if (component == "respect") {
-        document.getElementById("driver-header").innerHTML = "DRIVER - Worker Treatment";
+        document.getElementById("driver-header").innerHTML = "Driver: Worker Treatment";
         document.getElementById("description").innerHTML = "<h2 id='component-header'>Component: Respects workers.</h2><br>" + respect_lang + " <a href=" + respect_link + ">Learn more</a>";
         document.getElementById("component-header").style.color = respect_color;
       }
       else if (component == "workplace") {
-        document.getElementById("driver-header").innerHTML = "DRIVER - Worker Treatment";
+        document.getElementById("driver-header").innerHTML = "Driver: Worker Treatment";
         document.getElementById("description").innerHTML = "<h2 id='component-header'>Component: Provides a safe workplace.</h2><br>" + workplace_lang + " <a href=" + workplace_link + ">Learn more</a>";
         document.getElementById("component-header").style.color = workplace_color;
       }
       else if (component == "discriminate") {
-        document.getElementById("driver-header").innerHTML = "DRIVER - Worker Treatment";
+        document.getElementById("driver-header").innerHTML = "Driver: Worker Treatment";
         document.getElementById("description").innerHTML = "<h2 id='component-header'>Component: Doesn't discriminate in hiring, firing and promotion practices. </h2><br>" + discriminate_lang  + " <a href=" + discriminate_link + ">Learn more</a>";
         document.getElementById("component-header").style.color = discriminate_color;
       }
       else if (component == "fairpayindustry") {
-        document.getElementById("driver-header").innerHTML = "DRIVER - Worker Pay and Benefits";
+        document.getElementById("driver-header").innerHTML = "Driver: Worker Pay and Benefits";
         document.getElementById("description").innerHTML = "<h2 id='component-header'>Component: Pays a fair wage for the industry and job level.</h2><br>" + fairpayindustry_lang + " <a href=" + fairpayindustry_link + ">Learn more</a>";
         document.getElementById("component-header").style.color = fairpayindustry_color;
       }
@@ -189,81 +187,81 @@
   </thead>
   <tbody>
     <tr>
-      <th class="row">#1</th>
-      <td class="fairpayindustry" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Pays a fair wage for the industry and job level</td>
-      <td class="fairpayindustry" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Pays a fair wage for the industry and job level</td>
-      <td class="fairpayindustry" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Pays a fair wage for the industry and job level</td>
-      <td class="fairpayindustry" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Pays a fair wage for the industry and job level</td>
-      <td class="fairpayindustry" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Pays a fair wage for the industry and job level</td>
-      <td class="fairpayindustry" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Pays a fair wage for the industry and job level</td>
-      <td class="fairpayindustry" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Pays a fair wage for the industry and job level</td>
-      <td class="fairpayindustry" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Pays a fair wage for the industry and job level</td>
+      <th class="row" id="rank1">#1</th>
+      <td class="fairpayindustry" onmouseout="reset('rank1', this.className)" onmouseover="highlight('rank1', this.className)">Pays a fair wage for the industry and job level</td>
+      <td class="fairpayindustry" onmouseout="reset('rank1', this.className)" onmouseover="highlight('rank1', this.className)">Pays a fair wage for the industry and job level</td>
+      <td class="fairpayindustry" onmouseout="reset('rank1', this.className)" onmouseover="highlight('rank1', this.className)">Pays a fair wage for the industry and job level</td>
+      <td class="fairpayindustry" onmouseout="reset('rank1', this.className)" onmouseover="highlight('rank1', this.className)">Pays a fair wage for the industry and job level</td>
+      <td class="fairpayindustry" onmouseout="reset('rank1', this.className)" onmouseover="highlight('rank1', this.className)">Pays a fair wage for the industry and job level</td>
+      <td class="fairpayindustry" onmouseout="reset('rank1', this.className)" onmouseover="highlight('rank1', this.className)">Pays a fair wage for the industry and job level</td>
+      <td class="fairpayindustry" onmouseout="reset('rank1', this.className)" onmouseover="highlight('rank1', this.className)">Pays a fair wage for the industry and job level</td>
+      <td class="fairpayindustry" onmouseout="reset('rank1', this.className)" onmouseover="highlight('rank1', this.className)">Pays a fair wage for the industry and job level</td>
     </tr>
     <tr>
-      <th class="row">#2</th>
-      <td class="jobs" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Creates jobs in the US</td>
-      <td class="jobs" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Creates jobs in the US</td>
-      <td class="discriminate" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Doesn't discriminate in hiring, firing and promotion practices</td>
-      <td class="discriminate" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Doesn't discriminate in hiring, firing and promotion practices</td>
-      <td class="discriminate" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Doesn't discriminate in hiring, firing and promotion practices</td>
-      <td class="discriminate" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Doesn't discriminate in hiring, firing and promotion practices</td>
-      <td class="laws" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Follows laws and regulations</td>
-      <td class="laws" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Follows laws and regulations</td>
+      <th class="row" id="rank2">#2</th>
+      <td class="jobs" onmouseout="reset('rank2', this.className)" onmouseover="highlight('rank2', this.className)">Creates jobs in the US</td>
+      <td class="jobs" onmouseout="reset('rank2', this.className)" onmouseover="highlight('rank2', this.className)">Creates jobs in the US</td>
+      <td class="discriminate" onmouseout="reset('rank2', this.className)" onmouseover="highlight('rank2', this.className)">Doesn't discriminate in hiring, firing and promotion practices</td>
+      <td class="discriminate" onmouseout="reset('rank2', this.className)" onmouseover="highlight('rank2', this.className)">Doesn't discriminate in hiring, firing and promotion practices</td>
+      <td class="discriminate" onmouseout="reset('rank2', this.className)" onmouseover="highlight('rank2', this.className)">Doesn't discriminate in hiring, firing and promotion practices</td>
+      <td class="discriminate" onmouseout="reset('rank2', this.className)" onmouseover="highlight('rank2', this.className)">Doesn't discriminate in hiring, firing and promotion practices</td>
+      <td class="laws" onmouseout="reset('rank2', this.className)" onmouseover="highlight('rank2', this.className)">Follows laws and regulations</td>
+      <td class="laws" onmouseout="reset('rank2', this.className)" onmouseover="highlight('rank2', this.className)">Follows laws and regulations</td>
     </tr>
     <tr>
-      <th class="row">#3</th>
-      <td class="discriminate" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Doesn't discriminate in hiring, firing and promotion practices</td>
-      <td class="discriminate" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Doesn't discriminate in hiring, firing and promotion practices</td>
-      <td class="jobs" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Creates jobs in the US</td>
-      <td class="jobs" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Creates jobs in the US</td>
-      <td class="jobs" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Creates jobs in the US</td>
-      <td class="laws" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Follows laws and regulations</td>
-      <td class="jobs" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Creates jobs in the US</td>
-      <td class="discriminate" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Doesn't discriminate in hiring, firing and promotion practices</td>
+      <th class="row" id="rank3">#3</th>
+      <td class="discriminate" onmouseout="reset('rank3', this.className)" onmouseover="highlight('rank3', this.className)">Doesn't discriminate in hiring, firing and promotion practices</td>
+      <td class="discriminate" onmouseout="reset('rank3', this.className)" onmouseover="highlight('rank3', this.className)">Doesn't discriminate in hiring, firing and promotion practices</td>
+      <td class="jobs" onmouseout="reset('rank3', this.className)" onmouseover="highlight('rank3', this.className)">Creates jobs in the US</td>
+      <td class="jobs" onmouseout="reset('rank3', this.className)" onmouseover="highlight('rank3', this.className)">Creates jobs in the US</td>
+      <td class="jobs" onmouseout="reset('rank3', this.className)" onmouseover="highlight('rank3', this.className)">Creates jobs in the US</td>
+      <td class="laws" onmouseout="reset('rank3', this.className)" onmouseover="highlight('rank3', this.className)">Follows laws and regulations</td>
+      <td class="jobs" onmouseout="reset('rank3', this.className)" onmouseover="highlight('rank3', this.className)">Creates jobs in the US</td>
+      <td class="discriminate" onmouseout="reset('rank3', this.className)" onmouseover="highlight('rank3', this.className)">Doesn't discriminate in hiring, firing and promotion practices</td>
     </tr>
     <tr>
-      <th class="row">#4</th>
-      <td class="workplace" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Provides a safe workplace</td>
-      <td class="respect" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Respects workers</td>
-      <td class="wage" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Pays a living wage</td>
-      <td class="wage" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Pays a living wage</td>
-      <td class="laws" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Follows laws and regulations</td>
-      <td class="jobs" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Creates jobs in US</td>
-      <td class="discriminate" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Doesn't discriminate in hiring, firing and promotion practices</td>
-      <td class="workplace" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Provides a safe workpace</td>
+      <th class="row" id="rank4">#4</th>
+      <td class="workplace" onmouseout="reset('rank4', this.className)" onmouseover="highlight('rank4', this.className)">Provides a safe workplace</td>
+      <td class="respect" onmouseout="reset('rank4', this.className)" onmouseover="highlight('rank4', this.className)">Respects workers</td>
+      <td class="wage" onmouseout="reset('rank4', this.className)" onmouseover="highlight('rank4', this.className)">Pays a living wage</td>
+      <td class="wage" onmouseout="reset('rank4', this.className)" onmouseover="highlight('rank4', this.className)">Pays a living wage</td>
+      <td class="laws" onmouseout="reset('rank4', this.className)" onmouseover="highlight('rank4', this.className)">Follows laws and regulations</td>
+      <td class="jobs" onmouseout="reset('rank4', this.className)" onmouseover="highlight('rank4', this.className)">Creates jobs in US</td>
+      <td class="discriminate" onmouseout="reset('rank4', this.className)" onmouseover="highlight('rank4', this.className)">Doesn't discriminate in hiring, firing and promotion practices</td>
+      <td class="workplace" onmouseout="reset('rank4', this.className)" onmouseover="highlight('rank4', this.className)">Provides a safe workpace</td>
     </tr>
     <tr>
-      <th class="row">#5</th>
-      <td class="wage" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Pays a living wage</td>
-      <td class="workplace" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Provides a safe workplace</td>
-      <td class="laws" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Follows laws and regulations</td>
-      <td class="workplace" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Provides a safe workplace</td>
-      <td class="wage" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Pays a living wage</td>
-      <td class="workplace" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Provides a safe workplace</td>
-      <td class="leaders" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Has leaders with integrity</td>
-      <td class="jobs" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Creates jobs in US</td>
+      <th class="row" id="rank5">#5</th>
+      <td class="wage" onmouseout="reset('rank5', this.className)" onmouseover="highlight('rank5', this.className)">Pays a living wage</td>
+      <td class="workplace" onmouseout="reset('rank5', this.className)" onmouseover="highlight('rank5', this.className)">Provides a safe workplace</td>
+      <td class="laws" onmouseout="reset('rank5', this.className)" onmouseover="highlight('rank5', this.className)">Follows laws and regulations</td>
+      <td class="workplace" onmouseout="reset('rank5', this.className)" onmouseover="highlight('rank5', this.className)">Provides a safe workplace</td>
+      <td class="wage" onmouseout="reset('rank5', this.className)" onmouseover="highlight('rank5', this.className)">Pays a living wage</td>
+      <td class="workplace" onmouseout="reset('rank5', this.className)" onmouseover="highlight('rank5', this.className)">Provides a safe workplace</td>
+      <td class="leaders" onmouseout="reset('rank5', this.className)" onmouseover="highlight('rank5', this.className)">Has leaders with integrity</td>
+      <td class="jobs" onmouseout="reset('rank5', this.className)" onmouseover="highlight('rank5', this.className)">Creates jobs in US</td>
     </tr>
     <tr>
-      <th class="row">#6</th>
-      <td class="respect" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Respects workers</td>
-      <td class="wage" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Pays a living wage</td>
-      <td class="workplace" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Provides a safe workplace</td>
-      <td class="respect" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Respects workers</td>
-      <td class="workplace" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Provides a safe workplace</td>
-      <td class="respect" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Respects workers</td>
-      <td class="workplace" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Provides a safe workplace</td>
-      <td class="leaders" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Has leaders with integrity</td>
+      <th class="row" id="rank6">#6</th>
+      <td class="respect" onmouseout="reset('rank6', this.className)" onmouseover="highlight('rank6', this.className)">Respects workers</td>
+      <td class="wage" onmouseout="reset('rank6', this.className)" onmouseover="highlight('rank6', this.className)">Pays a living wage</td>
+      <td class="workplace" onmouseout="reset('rank6', this.className)" onmouseover="highlight('rank6', this.className)">Provides a safe workplace</td>
+      <td class="respect" onmouseout="reset('rank6', this.className)" onmouseover="highlight('rank6', this.className)">Respects workers</td>
+      <td class="workplace" onmouseout="reset('rank6', this.className)" onmouseover="highlight('rank6', this.className)">Provides a safe workplace</td>
+      <td class="respect" onmouseout="reset('rank6', this.className)" onmouseover="highlight('rank6', this.className)">Respects workers</td>
+      <td class="workplace" onmouseout="reset('rank6', this.className)" onmouseover="highlight('rank6', this.className)">Provides a safe workplace</td>
+      <td class="leaders" onmouseout="reset('rank6', this.className)" onmouseover="highlight('rank6', this.className)">Has leaders with integrity</td>
     </tr>
     <tr>
-      <th class="row">#7</th>
-      <td class="laws" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Follows laws and regulations</td>
-      <td class="laws" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Follows laws and regulations</td>
-      <td class="respect" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Respects workers</td>
-      <td class="laws" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Follows laws and regulations</td>
-      <td class="respect" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Respects workers</td>
-      <td class="leaders" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Has leaders with integrity</td>
-      <td class="respect" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Respects workers</td>
-      <td class="respect" onmouseout="reset(this.className)" onmouseover="highlight(this.className)">Respects workers</td>
+      <th class="row" id="rank7">#7</th>
+      <td class="laws" onmouseout="reset('rank7', this.className)" onmouseover="highlight('rank7', this.className)">Follows laws and regulations</td>
+      <td class="laws" onmouseout="reset('rank7', this.className)" onmouseover="highlight('rank7', this.className)">Follows laws and regulations</td>
+      <td class="respect" onmouseout="reset('rank7', this.className)" onmouseover="highlight('rank7', this.className)">Respects workers</td>
+      <td class="laws" onmouseout="reset('rank7', this.className)" onmouseover="highlight('rank7', this.className)">Follows laws and regulations</td>
+      <td class="respect" onmouseout="reset('rank7', this.className)" onmouseover="highlight('rank7', this.className)">Respects workers</td>
+      <td class="leaders" onmouseout="reset('rank7', this.className)" onmouseover="highlight('rank7', this.className)">Has leaders with integrity</td>
+      <td class="respect" onmouseout="reset('rank7', this.className)" onmouseover="highlight('rank7', this.className)">Respects workers</td>
+      <td class="respect" onmouseout="reset('rank7', this.className)" onmouseover="highlight('rank7', this.className)">Respects workers</td>
     </tr>
   </tbody>
   </table>
