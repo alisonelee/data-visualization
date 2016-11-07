@@ -9,6 +9,14 @@
     .bottom {
       position: fixed;
     }
+    h1 {
+      font-family: "Proxima Nova Extra Condensed";
+      font-size: 30px;
+    }
+    h2 {
+      font-family: "Bitter";
+      font-size: 20px;
+    }
     td {
       font-size: 14px;
       text-align: center;
@@ -26,7 +34,7 @@
     // Color for components
     var jobs_color = "#00BFFF";                                             // Domestic Job Creation
     var laws_color = "#8DC8E8";                                             // Follows Laws and Regulations
-    var wage_color = "#005999";                                             // Pays a Living Wage
+    var wage_color = "#306f9c";                                             // Pays a Living Wage
     var leaders_color = "#298FC2";                                          // Has Leaders with Integrity
     var respect_color = "#54AFDA";                                          // Respects Workers
     var workplace_color = "#1EA2A0";                                        // Provides a Safe Workplace
@@ -78,8 +86,7 @@
     }
 
     /**
-    * Highlights all instances of a given component
-    * when one is hovered over.
+    * Highlights all instances of a given component when one is hovered over.
     */
     function highlight(component) {
       var instances = document.getElementsByClassName(component);
@@ -106,49 +113,55 @@
     * Loads introductory description in top container.
     */
     window.onload = function intro() {
-      document.getElementById("more-info-heading").innerHTML = "Priorities voiced by the American public";
-      document.getElementById("more-info").innerHTML = "Presenting you the the top components as surfaced by our 2016 survey. Hover over the table to learn more.";
+      document.getElementById("driver-header").innerHTML = "Priorities voiced by the American public";
+      document.getElementById("description").innerHTML = "Presenting you the the top components as surfaced by our 2016 survey. Hover over the table to learn more.";
     }
 
     /**
     * Displays more information in top container.
     *
-    * Includes overarching driver name as well as
-    * component, and a link to the respective
-    * component page.
+    * Includes overarching driver name as well as component, and a link to the respective component page.
     */
     function getMoreInfo(component) {
       if (component == "jobs"){
-        document.getElementById("more-info-heading").innerHTML = "DRIVER -  Domestic Job Creation";
-        document.getElementById("more-info").innerHTML = "Component: Creates jobs in the US. <br>" + jobs_lang + "<a href=" + jobs_link + ">Learn more</a>";
+        document.getElementById("driver-header").innerHTML = "DRIVER -  Domestic Job Creation";
+        document.getElementById("description").innerHTML = "<h2 id='component-header'>Component: Creates jobs in the US.</h2><br>" + jobs_lang + " <a href=" + jobs_link + ">Learn more</a>";
+        document.getElementById("component-header").style.color = jobs_color;
       }
       else if (component == "laws") {
-        document.getElementById("more-info-heading").innerHTML = "DRIVER - Leadership and Ethics";
-        document.getElementById("more-info").innerHTML = "Component: Follows laws and regulation. <br>" + laws_lang + "<a href=" + laws_link + ">Learn more</a>";
+        document.getElementById("driver-header").innerHTML = "DRIVER - Leadership and Ethics";
+        document.getElementById("description").innerHTML = "<h2 id='component-header'>Component: Follows laws and regulation.</h2><br>" + laws_lang + " <a href=" + laws_link + ">Learn more</a>";
+        document.getElementById("component-header").style.color = laws_color;
       }
       else if (component == "wage") {
-        document.getElementById("more-info-heading").innerHTML = "DRIVER - Worker Pay and Benefits";
-        document.getElementById("more-info").innerHTML = "Component: Pays a living wage. <br>" + wage_lang + "<a href=" + wage_link + ">Learn more</a>";
+        document.getElementById("driver-header").innerHTML = "DRIVER - Worker Pay and Benefits";
+        document.getElementById("description").innerHTML = "<h2 id='component-header'>Component: Pays a living wage.</h2><br>" + wage_lang + " <a href=" + wage_link + ">Learn more</a>";
+        document.getElementById("component-header").style.color = wage_color;
       }
       else if (component == "leaders") {
-        document.getElementById("more-info-heading").innerHTML = "DRIVER - Leadership and Ethics";
-        document.getElementById("more-info").innerHTML = "Component: Has leaders with integrity. <br>" + leaders_lang + "<a href=" + leaders_link + ">Learn more</a>";
+        document.getElementById("driver-header").innerHTML = "DRIVER - Leadership and Ethics";
+        document.getElementById("description").innerHTML = "<h2 id='component-header'>Component: Has leaders with integrity.</h2><br>" + leaders_lang + " <a href=" + leaders_link + ">Learn more</a>";
+        document.getElementById("component-header").style.color = leaders_color;
       }
       else if (component == "respect") {
-        document.getElementById("more-info-heading").innerHTML = "DRIVER - Worker Treatment";
-        document.getElementById("more-info").innerHTML = "Component: Respects workers. <br>" + respect_lang + "<a href=" + respect_link + ">Learn more</a>";
+        document.getElementById("driver-header").innerHTML = "DRIVER - Worker Treatment";
+        document.getElementById("description").innerHTML = "<h2 id='component-header'>Component: Respects workers.</h2><br>" + respect_lang + " <a href=" + respect_link + ">Learn more</a>";
+        document.getElementById("component-header").style.color = respect_color;
       }
       else if (component == "workplace") {
-        document.getElementById("more-info-heading").innerHTML = "DRIVER - Worker Treatment";
-        document.getElementById("more-info").innerHTML = "Component: Provides a safe workplace. <br>" + workplace_lang + "<a href=" + workplace_link + ">Learn more</a>";
+        document.getElementById("driver-header").innerHTML = "DRIVER - Worker Treatment";
+        document.getElementById("description").innerHTML = "<h2 id='component-header'>Component: Provides a safe workplace.</h2><br>" + workplace_lang + " <a href=" + workplace_link + ">Learn more</a>";
+        document.getElementById("component-header").style.color = workplace_color;
       }
       else if (component == "discriminate") {
-        document.getElementById("more-info-heading").innerHTML = "DRIVER - Worker Treatment";
-        document.getElementById("more-info").innerHTML = "Component: Doesn't discriminate in hiring, firing and promotion practices. <br>" + discriminate_lang  + "<a href=" + discriminate_link + ">Learn more</a>";
+        document.getElementById("driver-header").innerHTML = "DRIVER - Worker Treatment";
+        document.getElementById("description").innerHTML = "<h2 id='component-header'>Component: Doesn't discriminate in hiring, firing and promotion practices. </h2><br>" + discriminate_lang  + " <a href=" + discriminate_link + ">Learn more</a>";
+        document.getElementById("component-header").style.color = discriminate_color;
       }
       else if (component == "fairpayindustry") {
-        document.getElementById("more-info-heading").innerHTML = "DRIVER - Worker Pay and Benefits";
-        document.getElementById("more-info").innerHTML = "Component: Pays a fair wage for the industry and job level. <br>" + fairpayindustry_lang + "<a href=" + fairpayindustry_link + ">Learn more</a>";
+        document.getElementById("driver-header").innerHTML = "DRIVER - Worker Pay and Benefits";
+        document.getElementById("description").innerHTML = "<h2 id='component-header'>Component: Pays a fair wage for the industry and job level.</h2><br>" + fairpayindustry_lang + " <a href=" + fairpayindustry_link + ">Learn more</a>";
+        document.getElementById("component-header").style.color = fairpayindustry_color;
       }
     }
   </script>
@@ -156,8 +169,8 @@
 <body>
   <section class="container">
   <div class="top">
-    <h1 id="more-info-heading"></h1>
-    <p id="more-info"></p>
+    <h1 id="driver-header"></h1>
+    <p id="description"></p>
   </div>
   <div class="bottom">
   <table>
