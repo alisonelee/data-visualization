@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+   <script src="https://code.highcharts.com/highcharts.js"></script>
+</head>
+<body>
+<div id="container" style="width: 550px; height: 400px; margin: 0 auto"></div>
+<script language="JavaScript">
+// ---------------------------------- C h a n g e s  s t a r t  h e r e --------------------------------------------//
+var driver1 = "Worker pay and benefits";
+var driver2 = "Worker treatment";
+var driver3 = "Leadership & ethics";
+var driver4 = "Customer treatment";
+var driver5 = "Product attributes";
+var driver6 = "Domestic job creation";
+var driver7 = "Environmental impact";
+var driver8 = "Supply chain impact";
+var driver9 = "Investor alignment";
+var driver10 = "Community wellbeing";
+
+var driver1_weight = 24.56;
+var driver2_weight = 24.03;
+var driver3_weight = 17.21;
+var driver4_weight = 7.43;
+var driver5_weight = 5.64;
+var driver6_weight = 5.57;
+var driver7_weight = 4.98;
+var driver8_weight = 4.08;
+var driver9_weight = 3.92;
+var driver10_weight = 1.69;
+// ---------------------------------- C h a n g e s  e n d  h e r e --------------------------------------------//
+$(document).ready(function() {
+   var chart = {
+      type: 'bar'
+   };
+   var title = {
+      text: 'Drivers'
+   };
+   var subtitle = {
+      text: '2016 Weights'
+   };
+   var xAxis = {
+      categories: [driver1,
+                   driver2,
+                   driver3,
+                   driver4,
+                   driver5,
+                   driver6,
+                   driver7,
+                   driver8,
+                   driver9,
+                   driver10],
+      title: {
+         text: null
+      }
+   };
+   var yAxis = {
+      min: 0,
+      title: {
+         text: 'Importance',
+         align: 'middle'
+      },
+      labels: {
+         overflow: 'justify'
+      }
+   };
+   var tooltip = {
+      valueSuffix: '%'
+   };
+   var plotOptions = {
+      bar: {
+         dataLabels: {
+            enabled: true
+         }
+      }
+   };
+   var legend = {
+      layout: 'vertical',
+      align: 'right',
+      verticalAlign: 'top',
+      x: -5,
+      y: 500, // 300
+      floating: true,
+      borderWidth: 1,
+      backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+      shadow: true
+   };
+   var credits = {
+      enabled: false
+   };
+
+   var series= [{
+         name: '2016',
+            data: [driver1_weight,
+                   driver2_weight,
+                   driver3_weight,
+                   driver4_weight,
+                   driver5_weight,
+                   driver6_weight,
+                   driver7_weight,
+                   driver8_weight,
+                   driver9_weight,
+                   driver10_weight
+                   ]
+          }
+   ];
+
+   var json = {};
+   json.chart = chart;
+   json.title = title;
+   json.subtitle = subtitle;
+   json.tooltip = tooltip;
+   json.xAxis = xAxis;
+   json.yAxis = yAxis;
+   json.series = series;
+   json.plotOptions = plotOptions;
+   json.legend = legend;
+   json.credits = credits;
+   $('#container').highcharts(json);
+});
+</script>
+</body>
+</html>
