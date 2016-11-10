@@ -20,6 +20,22 @@
       background-color: #DCD8D2;
       border: 1px solid #fff;
     }
+    button {
+      text-align: center;
+      font-family: "Bitter";
+      font-size: 15px;
+      background-color: #9f1f55;
+      color: white;
+      opacity: 1;
+      border: none;
+      -webkit-border-radius: 16px;
+      -moz-border-radius: 16px;
+      border-radius: 16px;
+      padding: 10px;
+    }
+    button:hover {
+      opacity: 0.75;
+    }
   </style>
   <script type="text/javascript">
     // ---------------------------------- C h a n g e s  s t a r t  h e r e --------------------------------------------//
@@ -175,9 +191,17 @@
 <body>
   <section class="container">
   <div class="top">
-    <h1 id="component-header"></h1>
-    <h1 id="driver-header"></h1>
-    <p id="description"></p>
+    <!-- Filters -->
+    <center>
+      <h1>Priorities Voiced by the American Public</h1>
+      <button id="byAge">by Age</button>
+      <button id="byGender">by Gender</button>
+      <button id="byIncome">by Income</button>
+      <button id="byEthnicity">by Ethnicity</button>
+      <button id="byInvestment">by Investment</button>
+      <button id="byPolitics">by Politics</button>
+    </center>
+    <br><br>
   </div>
   <div class="bottom">
   <table>
@@ -274,6 +298,10 @@
     </tr>
   </tbody>
   </table>
+  <!-- Display -->
+  <h1 id="component-header"></h1>
+  <h1 id="driver-header"></h1>
+  <p id="description"></p>
 </div>
 </section>
 </body>
