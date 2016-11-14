@@ -8,8 +8,8 @@
    </style>
 </head>
 <body>
-<div id="container" style="width: 100%; margin: 0 auto"></div>
-<script language="JavaScript">
+<div id="chartContainer" style="width: 100%; margin: 0 auto"></div>
+<script>
 
 // ---------------------------------- C h a n g e s  s t a r t  h e r e --------------------------------------------//
 var driver1 = "Worker Pay and Benefits";
@@ -191,7 +191,7 @@ $(document).ready(function() {
    json.plotOptions = plotOptions;
    json.legend = legend;
    json.credits = credits;
-   $('#container').highcharts(json);
+   $('#chartContainer').highcharts(json);
 });
 </script>
 </body>
