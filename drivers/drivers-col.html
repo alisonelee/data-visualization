@@ -41,6 +41,17 @@ var driver7Link = "https://justcapital.com/driver/environmental-impact/";
 var driver8Link = "https://justcapital.com/driver/supply-chain-impact/";
 var driver9Link = "https://justcapital.com/driver/investor-alignment/";
 var driver10Link = "https://justcapital.com/driver/community-well-being/";
+
+var driver1Copy = "Does the company pay its employees fairly? Americans shared that fair wages and providing reasonable benefits was one of most important factor defining corporate JUSTness.";
+var driver2Copy = "How well are employees treated, and what kind of culture is fostered? In addition to fair pay, Americans shared that the relationship between a corporation and its employees was highly important.";
+var driver3Copy = "Is the company honest and law-abiding? Americans believe that the ethics of corporate leadership, such as the transparency and honesty of its political activities and communication, are critical.";
+var driver4Copy = "Are customers treated fairly? How a company relates to and interacts with the people that buy its products or services makes a difference.";
+var driver5Copy = "How safe and useful are the products a company creates? Perceptions of JUSTness are affected by quality of the products/services that a corporation provides.";
+var driver6Copy = "Does the company create jobs in the US? Americans shared that outsourcing or offshoring jobs outside the US affected their beliefs about JUSTness.";
+var driver7Copy = "Does the company respect and protect our planet? Americans see Earth as a stakeholder, not merely a resource, in their understanding of JUSTness.";
+var driver8Copy = "Does the company protect human rights, in America and its supply chain? Americans want all human beings to be treated with dignity and respect.";
+var driver9Copy = "Is the company financially sustainable and creating value for its shareholders? Stock price and financial health were also components of JUSTness, when balanced with other factors.";
+var driver10Copy = "Does the company engage with and contribute to its local community? Participation and charitable efforts were important elements of local relations.";
 // ---------------------------------- C h a n g e s  e n d  h e r e --------------------------------------------//
 
 /**
@@ -95,35 +106,107 @@ function getLink(driverLink) {
     return driver10Link;
 }
 
+/**
+* Returns copy on the driver.
+*/
+function getCopy(driver) {
+  if (driver === "driver1") {
+
+  }
+  else if (driver === "driver2") {
+
+  }
+  else if (driver === "driver3") {
+
+  }
+  else if (driver === "driver4") {
+
+  }
+  else if (driver === "driver5") {
+
+  }
+  else if (driver === "driver6") {
+
+  }
+  else if (driver === "driver7") {
+
+  }
+  else if (driver === "driver8") {
+
+  }
+  else if (driver === "driver9") {
+
+  }
+  else if (driver === "driver10") {
+
+  }
+}
+
 $(document).ready(function() {
    var chart = {
       type: 'column'
    };
    var title = {
-      text: 'Drivers'
+      text: ''
    };
    var subtitle = {
-      text: '2016 Weights'
+      text: ''
    };
-   var yAxis = {
+   var xAxis = {
       categories: [driver1, driver2, driver3, driver4, driver5,
                    driver6, driver7, driver8, driver9, driver10],
       title: {
          text: null
-      }
+      },
+      lineWidth: 0,
+      minorGridLineWidth: 0,
+      gridLineColor: 'transparent',
+      lineColor: 'transparent',
+      minorTickLength: 0,
+      tickLength: 0
    };
-   var xAxis = {
+   var yAxis = {
       min: 0,
       title: {
          text: 'Importance',
          align: 'middle'
       },
       labels: {
+         enabled: false,
          overflow: 'justify'
-      }
+      },
+      lineWidth: 0,
+      minorGridLineWidth: 0,
+      gridLineColor: 'transparent',
+      lineColor: 'transparent',
+      minorTickLength: 0,
+      tickLength: 0
    };
    var tooltip = {
-      valueSuffix: '%'
+      //valueSuffix: '%',
+      formatter: function() {
+        if (this.x === driver1)
+          return this.x + driver1Copy;
+        else if (this.x === driver2)
+          return this.x + driver2Copy;
+        else if (this.x === driver3)
+          return this.x + driver3Copy;
+        else if (this.x === driver4)
+          return this.x + driver4Copy;
+        else if (this.x === driver5)
+          return this.x + driver5Copy;
+        else if (this.x === driver6)
+          return this.x + driver6Copy;
+        else if (this.x === driver7)
+          return this.x + driver7Copy;
+        else if (this.x === driver8)
+          return this.x + driver8Copy;
+        else if (this.x === driver9)
+          return this.x + driver9Copy;
+        else if (this.x === driver10)
+          return this.x + driver10Copy;
+
+      }
    };
    var plotOptions = {
       column: {
@@ -162,7 +245,7 @@ $(document).ready(function() {
          name: '2016',
             data: [driver1Weight, driver2Weight, driver3Weight, driver4Weight,driver5Weight,
                    driver6Weight,driver7Weight,driver8Weight, driver9Weight, driver10Weight]
-          }
+         }
    ];
 
    var json = {};
