@@ -49,74 +49,28 @@
 <script>
 // Data
   var driverData = [
-    //Worker pay and benefits
+    // Right direction
     {
-      value: 25.5,
-      color:"#005999",
-      label:"Worker pay and benefits"
+      value : 26,
+      color : "#EC7063",
+      label:"Right direction"
     },
-    // Worker treatment
+    // Wrong direction
     {
-      value : 24,
-      color : "#8DC8E8",
-      label:"Worker treatment"
+      value : 52,
+      color : "#E74C3C",
+      label:"Wrong direction"
     },
-    // Leadership and ethics
+    // Don't know
     {
-      value : 17.2,
-      color : "#298FC2",
-      label:"Leadership and ethics"
-    },
-    // Customer treatment
-    {
-      value : 7.4,
-      color : "#00BFFF",
-      label:"Customer treatment"
-    },
-    // Product attributes
-    {
-      value : 5.6,
+      value : 22,
       color : "#dfdfdf",
-      label:"Product attributes"
-    },
-    // Domestic job creation
-    {
-      value : 5.6,
-      color : "#545454",
-      label:"Domestic job creation"
-    },
-    // Environmental impact
-    {
-      value : 5.0,
-      color : "#6AB93E",
-      label:"Environmental impact"
-    },
-    // Supply chain impact
-    {
-      value : 4.1,
-      color : "#1EA2A0",
-      label:"Supply chain impact"
-    },
-    // Investor alignment
-    {
-      value : 3.9,
-      color : "#167472",
-      label:"Investor alignment"
-    },
-    // Community wellbeing
-    {
-      value : 1.7,
-      color : "#0f4746",
-      label:"Community well-being"
+      label:"Don't know"
     }
   ];
   // Create chart
   window.onload = function(){
-    var canvas = document.getElementById("chart-area");
     var ctx = document.getElementById("chart-area").getContext("2d");
-    // document.getElementById("chart-area").addEventListener('click', function() {
-    //   alert("HI");
-    // });
     window.driverChart = new Chart(ctx).Doughnut(driverData, {
       responsive : true,
       animationEasing: "easeOutQuart",
@@ -124,6 +78,7 @@
       segmentStrokeColor : "#f9f9f9",
       legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><div class=\"comm-how\"><%=segments[i].value%>%</div><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
     });
+
     // Append legend
     var legendContainer = document.getElementById('driver-legend')
     legendContainer.innerHTML = driverChart.generateLegend();
@@ -133,7 +88,6 @@
         activeSegment.save();
         activeSegment.fillColor = activeSegment.highlightColor;
         driverChart.showTooltip([activeSegment]);
-        [activeSegment].addEventListener('click', function() {alert("HI");});
         activeSegment.restore();
       });
     });
@@ -141,7 +95,6 @@
       driverChart.draw();
     });
     canvas.parentNode.parentNode.appendChild(legendContainer.firstChild);
-
     driverChart.generateLegend();
     document.getElementById('driver-legend').innerHTML = driverChart.generateLegend();
   };
